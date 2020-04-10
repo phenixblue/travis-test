@@ -11,3 +11,8 @@ test: unit
 
 .PHONY: coverage
 coverage: echo
+
+.PHONY: ci-lint
+ci-lint:
+
+	black --check app/helloworld/

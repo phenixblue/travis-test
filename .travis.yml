@@ -1,6 +1,23 @@
 language: python
 python:
   - "3.7"
+
+jobs:
+  include:
+    - name: lint
+      install: 
+        - pip install black
+      script:
+        - make ci-lint
+    - name: unit-tests
+      install: 
+        - export PIPENV_PIPFILE="app/helloworld/Pipfile"
+        - pip install pipenv
+        - pipenv install --system --deploy
+      script:
+        - make test
+
+
 # command to install dependencies
 install:
   - export PIPENV_PIPFILE="app/helloworld/Pipfile"
