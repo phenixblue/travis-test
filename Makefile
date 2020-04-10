@@ -12,6 +12,11 @@ test: unit
 .PHONY: coverage
 coverage: echo
 
+.Phony: lint
+lint:
+
+	black app/helloworld/
+
 .PHONY: ci-lint
 ci-lint:
 

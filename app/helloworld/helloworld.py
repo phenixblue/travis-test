@@ -8,33 +8,34 @@ import requests
 app = Flask(__name__)
 
 
-@app.route('/', methods=['POST'])
+@app.route("/", methods=["POST"])
 def webhook():
 
     request_info = request.json
 
     return jsonify(request_info)
 
-@app.route('/healthz', methods=['GET'])
+
+@app.route("/healthz", methods=["GET"])
 def healthz():
 
     """Function to return health info for app"""
 
-    health_response = {
-        "date_time": str(datetime.datetime.now()),
-        "health": "ok"
-    }
+    health_response = {"date_time": str(datetime.datetime.now()), "health": "ok"}
 
     # Return JSON formatted response object
     return jsonify(health_response)
 
+
 ################################################################################
 ################################################################################
 ################################################################################
+
 
 def main():
 
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
+
 
 ################################################################################
 ################################################################################
